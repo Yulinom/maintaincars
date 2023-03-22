@@ -2,7 +2,7 @@ package ml.tianhong.rwh.maintain.portal.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RCar;
 import ml.tianhong.rwh.maintain.portal.entity.bo.CarBO;
 import ml.tianhong.rwh.maintain.portal.entity.vo.CarVO;
@@ -10,12 +10,11 @@ import ml.tianhong.rwh.maintain.portal.mapper.RCarMapper;
 import ml.tianhong.rwh.maintain.portal.service.RCarModelService;
 import ml.tianhong.rwh.maintain.portal.service.RCarService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import ml.tianhong.rwh.common.util.JwtUtils;
+import ml.tianhong.rwh.maintain.common.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.rowset.serial.SerialArray;
 import java.util.ArrayList;
 import java.util.List;
 

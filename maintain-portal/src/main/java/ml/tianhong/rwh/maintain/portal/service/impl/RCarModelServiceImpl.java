@@ -2,7 +2,7 @@ package ml.tianhong.rwh.maintain.portal.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RCarModel;
 import ml.tianhong.rwh.maintain.portal.mapper.RCarModelMapper;
 import ml.tianhong.rwh.maintain.portal.service.RBrandService;

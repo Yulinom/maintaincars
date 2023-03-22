@@ -1,18 +1,16 @@
 package ml.tianhong.rwh.maintain.portal.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import ml.tianhong.rwh.common.api.ResultVO;
-import ml.tianhong.rwh.common.util.MyException;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.util.JwtUtils;
 import ml.tianhong.rwh.maintain.portal.entity.RAppointment;
 import ml.tianhong.rwh.maintain.portal.mapper.RAppointmentMapper;
 import ml.tianhong.rwh.maintain.portal.service.RAppointmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ml.tianhong.rwh.maintain.portal.service.RAsService;
 import ml.tianhong.rwh.maintain.portal.service.RCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import springfox.documentation.spring.web.json.Json;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -31,12 +29,13 @@ public class RAppointmentServiceImpl extends ServiceImpl<RAppointmentMapper, RAp
 
     @Autowired
     private RCarService rCarService;
+
     @Autowired
-    private ObjectMapper objectMapper;
+    private RAsService rAsService;
 
     @Override
-    public ResultVO addAppointment(HttpServletRequest request, String carId, Date time, String serviceIdList, String remark) {
-        if (StringUtils.isEmpty(serviceIdList)
+    public ResultVO addAppointment(HttpServletRequest request, String carId, Date time, ArrayList<String> serviceIdList, String remark) {
+        if (serviceIdList == null
                 || StringUtils.isEmpty((String) request.getSession().getAttribute("token"))
                 || StringUtils.isEmpty(carId)
                 || time == null)
@@ -52,17 +51,25 @@ public class RAppointmentServiceImpl extends ServiceImpl<RAppointmentMapper, RAp
             System.out.println(rAppointment);
 
             //添加预约和服务的多对多关系记录
-            try {
-                ArrayList list = objectMapper.readValue(serviceIdList, ArrayList.class);
-                for (Object o : list) {
-
-                }
-
-            } catch (JsonProcessingException e) {
-                throw new MyException(20001,"服务对象json反序列化为对象失败");
+            for (Object o : serviceIdList) {
+                rAsService.addRAs(rAppointment.getId(), (String) o);
             }
+
+            return ResultVO.ok();
         }
 
         return ResultVO.error();
+    }
+
+    public ResultVO addAppointment(HttpServletRequest request, String carId, Date time, ArrayList<String> serviceIdList, String remark, String phone, String registrationNumber) {
+        if (StringUtils.isEmpty(phone) || StringUtils.isEmpty(registrationNumber)) {
+            return ResultVO.error().message("非法请求");
+        }
+        remark += "\t\t***临时用户的电话为：" + phone + "\n\t\t***车牌号为：" + registrationNumber;
+
+        //向request的session中注入token
+//        request.getSession().setAttribute("token", JwtUtils.getJwtToken("admin"));
+
+        return addAppointment(request, carId, time, serviceIdList, remark);
     }
 }

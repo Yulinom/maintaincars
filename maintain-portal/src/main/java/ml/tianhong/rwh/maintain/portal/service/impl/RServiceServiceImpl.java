@@ -1,5 +1,6 @@
 package ml.tianhong.rwh.maintain.portal.service.impl;
 
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RService;
 import ml.tianhong.rwh.maintain.portal.mapper.RServiceMapper;
 import ml.tianhong.rwh.maintain.portal.service.RServiceService;
@@ -17,4 +18,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class RServiceServiceImpl extends ServiceImpl<RServiceMapper, RService> implements RServiceService {
 
+    @Override
+    public ResultVO addService(String sName) {
+        baseMapper.insert(new RService().setSName(sName));
+        return ResultVO.ok();
+    }
 }

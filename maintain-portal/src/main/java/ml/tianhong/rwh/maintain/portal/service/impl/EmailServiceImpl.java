@@ -1,7 +1,7 @@
 package ml.tianhong.rwh.maintain.portal.service.impl;
 
 import ml.tianhong.rwh.maintain.portal.service.EmailService;
-import ml.tianhong.rwh.common.util.MyException;
+import ml.tianhong.rwh.maintain.common.util.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

@@ -1,10 +1,11 @@
 package ml.tianhong.rwh.maintain.portal.service;
 
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RAppointment;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,5 +18,19 @@ import java.util.Date;
  */
 public interface RAppointmentService extends IService<RAppointment> {
 
-    ResultVO addAppointment(HttpServletRequest request, String carId, Date time, String serviceIdList, String remark);
+    ResultVO addAppointment(HttpServletRequest request, String carId, Date time, ArrayList<String> serviceIdList, String remark);
+
+    /**
+     *
+     * 未经过预约，直接到店顾客进行预约
+     * @param request
+     * @param carId
+     * @param time
+     * @param serviceIdList
+     * @param remark
+     * @param phone
+     * @param registrationNumber
+     * @return
+     */
+    ResultVO addAppointment(HttpServletRequest request, String carId, Date time, ArrayList<String> serviceIdList, String remark, String phone, String registrationNumber);
 }

@@ -1,4 +1,4 @@
-package ml.tianhong.rwh.common.util;
+package ml.tianhong.rwh.maintain.common.util;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;

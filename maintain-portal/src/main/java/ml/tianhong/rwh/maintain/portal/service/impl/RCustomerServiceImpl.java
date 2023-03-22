@@ -2,17 +2,17 @@ package ml.tianhong.rwh.maintain.portal.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RCustomer;
 import ml.tianhong.rwh.maintain.portal.entity.vo.UserVO;
 import ml.tianhong.rwh.maintain.portal.mapper.RCustomerMapper;
 import ml.tianhong.rwh.maintain.portal.service.EmailService;
 import ml.tianhong.rwh.maintain.portal.service.RCustomerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import ml.tianhong.rwh.common.util.JwtUtils;
-import ml.tianhong.rwh.common.util.MD5;
-import ml.tianhong.rwh.common.util.MyException;
-import ml.tianhong.rwh.common.util.TokenCache;
+import ml.tianhong.rwh.maintain.common.util.JwtUtils;
+import ml.tianhong.rwh.maintain.common.util.MD5;
+import ml.tianhong.rwh.maintain.common.util.MyException;
+import ml.tianhong.rwh.maintain.common.util.TokenCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

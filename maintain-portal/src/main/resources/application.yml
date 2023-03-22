@@ -31,6 +31,10 @@ mybatis-plus:
 
 host: "http://localhost:8080/portal/r-customer/validate/"  #激活邮件服务的前缀，如果在线上部署，则需要修改为真实的部署服务器的真实ip和端口号 http://[IP:PORT]/portal/r-customer/validate/
 
+adminAccount:   #管理员账号
+  name: "admin"
+  password: "1234567890"
+
 #配置mybatis-plus日志
 #mybatis-plus:
 #  configuration:

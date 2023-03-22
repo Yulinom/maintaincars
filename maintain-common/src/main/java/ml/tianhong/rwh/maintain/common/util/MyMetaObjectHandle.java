@@ -1,4 +1,4 @@
-package ml.tianhong.rwh.common.util;
+package ml.tianhong.rwh.maintain.common.util;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

@@ -1,4 +1,4 @@
-package ml.tianhong.rwh.common.api;
+package ml.tianhong.rwh.maintain.common.api;
 
 public interface ResultCode {
     public static Integer SUCCESS=20000;

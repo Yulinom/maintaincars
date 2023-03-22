@@ -1,6 +1,6 @@
 package ml.tianhong.rwh.maintain.portal.service;
 
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RBrand;
 import com.baomidou.mybatisplus.extension.service.IService;
 

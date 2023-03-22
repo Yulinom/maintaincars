@@ -3,7 +3,7 @@ package ml.tianhong.rwh.maintain.portal.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RCustomer;
 import ml.tianhong.rwh.maintain.portal.entity.vo.UserVO;
 import ml.tianhong.rwh.maintain.portal.service.RCustomerService;

@@ -1,4 +1,4 @@
-package ml.tianhong.rwh.common.util;
+package ml.tianhong.rwh.maintain.common.util;
 
 import com.google.common.base.Predicates;
 import org.springframework.beans.factory.annotation.Value;

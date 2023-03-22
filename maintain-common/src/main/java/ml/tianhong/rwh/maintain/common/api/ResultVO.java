@@ -1,4 +1,4 @@
-package ml.tianhong.rwh.common.api;
+package ml.tianhong.rwh.maintain.common.api;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

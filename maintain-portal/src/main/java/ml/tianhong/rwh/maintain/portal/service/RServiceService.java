@@ -1,5 +1,6 @@
 package ml.tianhong.rwh.maintain.portal.service;
 
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RService;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RServiceService extends IService<RService> {
 
+    ResultVO addService(String sName);
 }

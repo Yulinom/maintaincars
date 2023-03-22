@@ -4,7 +4,7 @@ package ml.tianhong.rwh.maintain.portal.controller;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import ml.tianhong.rwh.common.api.ResultVO;
+import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.vo.CarVO;
 import ml.tianhong.rwh.maintain.portal.service.RCarService;
 import org.springframework.beans.factory.annotation.Autowired;
