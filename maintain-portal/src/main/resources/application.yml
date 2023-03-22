@@ -1,0 +1,39 @@
+#服务端口
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fruit
+  profiles:
+    active: dev #设置当前环境为开发环境
+  #返回json的全局时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/test1
+    username: root
+    password: 4399
+  mail:
+    host: smtp.qq.com
+    username: 2947166910@qq.com
+    password: gkpsrmelwebbdfdh
+    default-encoding: UTF-8
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+host: "http://localhost:8080/portal/r-customer/validate/"  #激活邮件服务的前缀，如果在线上部署，则需要修改为真实的部署服务器的真实ip和端口号 http://[IP:PORT]/portal/r-customer/validate/
+
+#配置mybatis-plus日志
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  因为后来配置了logback日志
+#  删除application.yml中原有的mybatisplus日志配置，不然有冲突会报错
