@@ -40,5 +40,11 @@ public class RCarModelController {
         return rCarModelService.getModelById(id);
     }
 
+    @ApiOperation("获取所有车型控制器")
+    @PostMapping("/getModels")
+    public ResultVO getModels(){
+        return rCarModelService.getModels();
+    }
+
 }
 

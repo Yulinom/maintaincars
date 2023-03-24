@@ -13,6 +13,9 @@ import ml.tianhong.rwh.maintain.portal.entity.RCarModel;
 @Accessors(chain = true)
 @ApiModel(value="CarBO对象", description="拼接后返回前端的car对象，不是直接返回车型id，而是作为成员对象")
 public class CarBO {
+    @ApiModelProperty(value = "车id")
+    private String carId;
+
     @ApiModelProperty(value = "车牌号")
     private String registrationNumber;
 
@@ -26,6 +29,7 @@ public class CarBO {
     private String customerId;
 
     public CarBO(RCar rCar){
+        this.carId=rCar.getId();
         this.customerId=rCar.getCustomerId();
         this.licenseSpace=rCar.getLicenseSpace();
         this.registrationNumber=rCar.getRegistrationNumber();

@@ -6,11 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.service.RBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -38,6 +34,12 @@ public class RBrandController {
     @PostMapping("/getBrandByName")
     public ResultVO getBrandByName(@RequestParam String brand){
         return rBrandService.getBrandByName(brand);
+    }
+
+    @ApiOperation("获取所有品牌控制器")
+    @PostMapping("/getBrands")
+    public ResultVO getBrands(){
+        return rBrandService.getBrands();
     }
 }
 

@@ -17,4 +17,6 @@ public interface RBrandService extends IService<RBrand> {
     ResultVO addBrand(String brand);
 
     ResultVO getBrandByName(String brand);
+
+    ResultVO getBrands();
 }

@@ -31,5 +31,11 @@ public class RServiceController {
     public ResultVO addService(String sName){
         return rServiceService.addService(sName);
     }
+
+    @ApiOperation("返回所有能够提供的服务")
+    @PostMapping("/getServices")
+    public ResultVO getServices(){
+        return rServiceService.getServices();
+    }
 }
 

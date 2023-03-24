@@ -48,4 +48,9 @@ public class RCarModelServiceImpl extends ServiceImpl<RCarModelMapper, RCarModel
         }
         return ResultVO.error();
     }
+
+    @Override
+    public ResultVO getModels() {
+        return ResultVO.ok().data("data",baseMapper.selectList(null));
+    }
 }

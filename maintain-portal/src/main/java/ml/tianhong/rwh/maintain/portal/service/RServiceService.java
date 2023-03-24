@@ -15,4 +15,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface RServiceService extends IService<RService> {
 
     ResultVO addService(String sName);
+
+    ResultVO getServices();
+
+    ResultVO getServiceById(String id);
 }

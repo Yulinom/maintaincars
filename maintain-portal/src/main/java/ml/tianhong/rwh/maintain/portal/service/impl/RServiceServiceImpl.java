@@ -1,5 +1,7 @@
 package ml.tianhong.rwh.maintain.portal.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RService;
 import ml.tianhong.rwh.maintain.portal.mapper.RServiceMapper;
@@ -22,5 +24,16 @@ public class RServiceServiceImpl extends ServiceImpl<RServiceMapper, RService> i
     public ResultVO addService(String sName) {
         baseMapper.insert(new RService().setSName(sName));
         return ResultVO.ok();
+    }
+
+    @Override
+    public ResultVO getServices() {
+        return ResultVO.ok().data("data",baseMapper.selectList(null));
+    }
+
+    @Override
+    public ResultVO getServiceById(String id) {
+        if (StringUtils.isEmpty(id)) return ResultVO.error().message("非法请求");
+        return ResultVO.ok().data("data",baseMapper.selectOne(new QueryWrapper<RService>().eq("id",id)));
     }
 }

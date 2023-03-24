@@ -17,4 +17,6 @@ public interface RCarModelService extends IService<RCarModel> {
     ResultVO addModel(String model, String brand);
 
     ResultVO getModelById(String id);
+
+    ResultVO getModels();
 }

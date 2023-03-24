@@ -1,11 +1,9 @@
 package ml.tianhong.rwh.maintain.portal.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.util.Date;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,11 +35,19 @@ public class RAppointment implements Serializable {
     @ApiModelProperty(value = "预约状态，0表示预约失败，1表示预约成功")
     private String status;
 
-    @ApiModelProperty(value = "选择预约时间")
-    private Date time;
+    @ApiModelProperty(value = "选择预约日期")
+    private Date dateRecord;
+
+    @ApiModelProperty(value = "选择预约时间段")
+    private String timeId;
 
     @ApiModelProperty(value = "维修信息描述，设计存储富文本")
     private String remark;
+
+    @ApiModelProperty(value = "逻辑删除")
+    @TableField(fill = FieldFill.INSERT)
+    @TableLogic
+    private String deleted;
 
     @TableField(fill = FieldFill.INSERT)
     private Date gmtCreate;

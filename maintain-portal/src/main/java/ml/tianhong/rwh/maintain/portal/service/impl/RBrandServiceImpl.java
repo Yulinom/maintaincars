@@ -38,4 +38,9 @@ public class RBrandServiceImpl extends ServiceImpl<RBrandMapper, RBrand> impleme
     public ResultVO getBrandByName(String brand) {
         return ResultVO.ok().data("data",baseMapper.selectOne(new QueryWrapper<RBrand>().eq("brand",brand)));
     }
+
+    @Override
+    public ResultVO getBrands() {
+        return ResultVO.ok().data("data",baseMapper.selectList(null));
+    }
 }
