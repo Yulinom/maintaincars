@@ -32,7 +32,7 @@ public class RAppointment implements Serializable {
 
     private String carId;
 
-    @ApiModelProperty(value = "预约状态，0表示预约失败，1表示预约成功")
+    @ApiModelProperty(value = "预约状态，0-预约失败，1-预约成功并在等待车辆送达，2-预约已经生成订单")
     private String status;
 
     @ApiModelProperty(value = "选择预约日期")

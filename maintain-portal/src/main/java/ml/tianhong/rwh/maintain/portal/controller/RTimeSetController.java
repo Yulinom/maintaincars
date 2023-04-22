@@ -3,6 +3,7 @@ package ml.tianhong.rwh.maintain.portal.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import ml.tianhong.rwh.maintain.common.api.ResultVO;
 import ml.tianhong.rwh.maintain.portal.entity.RTimeSet;
 import ml.tianhong.rwh.maintain.portal.service.RTimeSetService;
@@ -32,8 +33,9 @@ public class RTimeSetController {
     @Autowired
     private RTimeSetService timeSetService;
 
+    @ApiOperation("新增服务时间段")
     @PostMapping("/addTimeSet")
-    public ResultVO addTimeSet(Date startTime, Date endTime){
+    public ResultVO addTimeSet(@ApiParam("前半部分的日期为无效信息，后面的时分秒才是有效信息，传入参数格式：2020/06/17 12:00:00") Date startTime, Date endTime){
         return timeSetService.addTimeSet(startTime,endTime);
     }
 

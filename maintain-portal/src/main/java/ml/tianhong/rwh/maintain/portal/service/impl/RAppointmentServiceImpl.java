@@ -113,4 +113,19 @@ public class RAppointmentServiceImpl extends ServiceImpl<RAppointmentMapper, RAp
             return ResultVO.ok();
         } else return car;
     }
+
+    @Override
+    public ResultVO getAppointmentByAppointmentId(HttpServletRequest request, String appointmentId) {
+        if (StringUtils.isEmpty(appointmentId)) return ResultVO.error().message("非法请求");
+        RAppointment appointment = baseMapper.selectOne(new QueryWrapper<RAppointment>().eq("id", appointmentId));
+        if (appointment == null) {
+            return ResultVO.error().message("预约不存在");
+        }else {
+            if (rCarService.getCarById(appointment.getCarId(),request).getSuccess()) {
+                return ResultVO.ok().data("data",appointment);
+            }
+        }
+        return ResultVO.error().message("非法请求");
+    }
+
 }

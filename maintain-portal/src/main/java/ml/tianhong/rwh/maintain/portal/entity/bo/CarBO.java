@@ -34,4 +34,7 @@ public class CarBO {
         this.licenseSpace=rCar.getLicenseSpace();
         this.registrationNumber=rCar.getRegistrationNumber();
     }
+
+    public CarBO() {
+    }
 }

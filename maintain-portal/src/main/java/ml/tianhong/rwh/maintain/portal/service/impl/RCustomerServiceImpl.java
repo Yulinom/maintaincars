@@ -90,6 +90,7 @@ public class RCustomerServiceImpl extends ServiceImpl<RCustomerMapper, RCustomer
         queryWrapper.eq("email", email);
         queryWrapper.eq("password", MD5.encrypt(password));
         RCustomer selectOne = baseMapper.selectOne(queryWrapper);
+        if (selectOne.getDisable().equals("1")) return ResultVO.error().message("当前用户暂未激活，如果激活邮件已过期，请进行忘记密码设置");
         if (selectOne != null) {
             String token = JwtUtils.getJwtToken(selectOne.getId(), new Date().toString());
             session.setAttribute("token", token);
@@ -108,10 +109,10 @@ public class RCustomerServiceImpl extends ServiceImpl<RCustomerMapper, RCustomer
             RCustomer selectOne = baseMapper.selectOne(queryWrapper);
             if (selectOne != null) {
                 //验证通过，重置密码
-                selectOne.setPassword(MD5.encrypt("123456"));
+                selectOne.setPassword(MD5.encrypt("123456")).setDisable("0");
                 baseMapper.updateById(selectOne);
                 emailService.sendNotice(email, "您的重置密码为123456", "汽车维修中心通知消息");
-                return ResultVO.ok();
+                return ResultVO.ok().message("重置密码成功，请前往您的邮箱查收重置后的密码");
             }
             return ResultVO.error().message("邮箱或密码错误");
         }

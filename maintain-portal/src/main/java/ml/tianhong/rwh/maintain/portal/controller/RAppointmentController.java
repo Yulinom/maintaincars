@@ -42,8 +42,8 @@ public class RAppointmentController {
     @PostMapping("/addAppointment")
     public ResultVO addAppointment(HttpServletRequest request,
                                    @RequestParam String carId,
-                                   @RequestParam Date dateRecord,
-                                   @RequestParam String timeId,
+                                   @RequestParam @ApiParam("只记录预约具体日期，传入参数格式为：2020/06/17 12:00:00") Date dateRecord,
+                                   @RequestParam @ApiParam("记录预约具体时间段Id") String timeId,
                                    @RequestParam @ApiParam("前端传入参数格式 &serviceIdList=1638411083733790721&serviceIdList=1638416747424014337 ") ArrayList<String> serviceIdList,
                                    @RequestParam(required = false) String remark) {
         return rAppointmentService.addAppointment(request, carId, dateRecord, timeId, serviceIdList, remark);

@@ -1,30 +1,24 @@
-package ml.tianhong.rwh.maintain.portal.entity;
+package ml.tianhong.rwh.maintain.portal.entity.bo;
 
-import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import ml.tianhong.rwh.maintain.portal.entity.RAppointment;
+import ml.tianhong.rwh.maintain.portal.entity.ROrder;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author rwh
- * @since 2023-03-20
- */
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="ROrder对象", description="")
-public class ROrder implements Serializable {
-
+@ApiModel(value = "OrderBO对象", description = "后端拼接后返回前端的order对象")
+public class OrderBO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
@@ -40,13 +34,22 @@ public class ROrder implements Serializable {
     private String status;
 
     @ApiModelProperty(value = "详情")
-    private String description;
+    private String desc;
 
     @ApiModelProperty(value = "价格")
     private BigDecimal price;
 
-    @ApiModelProperty(value = "预约Id")
-    private String appointmentId;
+    @ApiModelProperty(value = "预约")
+    private RAppointment rAppointment;
 
+    public OrderBO(ROrder rOrder) {
+        this.startTime=rOrder.getStartTime();
+        this.finishTime=rOrder.getFinishTime();
+        this.desc=rOrder.getDescription();
+        this.price=rOrder.getPrice();
+        this.status=rOrder.getStatus();
+    }
 
+    public OrderBO() {
+    }
 }

@@ -40,4 +40,6 @@ public interface RAppointmentService extends IService<RAppointment> {
     ResultVO getAppointmentsByCarId(HttpServletRequest request, String carId);
 
     ResultVO deleteAppointment(HttpServletRequest request, String appointmentId);
+
+    ResultVO getAppointmentByAppointmentId(HttpServletRequest request, String appointmentId);
 }
