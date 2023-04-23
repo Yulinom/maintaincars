@@ -16,6 +16,7 @@ spring:
     url: jdbc:mysql://localhost:3307/test1
     username: root
     password: 4399
+#    邮箱配置
   mail:
     host: smtp.qq.com
     username: 2947166910@qq.com
@@ -28,6 +29,7 @@ mybatis-plus:
     db-config:
       logic-delete-value: 1
       logic-not-delete-value: 0
+  mapper-locations: classpath*:**/mapper/xml/*.xml
 
 host: "http://localhost:8080/portal/r-customer/validate/"  #激活邮件服务的前缀，如果在线上部署，则需要修改为真实的部署服务器的真实ip和端口号 http://[IP:PORT]/portal/r-customer/validate/
 

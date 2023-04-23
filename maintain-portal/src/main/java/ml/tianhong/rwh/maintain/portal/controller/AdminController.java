@@ -63,6 +63,8 @@ public class AdminController {
         return adminService.getAllOrders();
     }
 
+    @ApiOperation("获取用户订单控制")
+    @PostMapping("/getOrdersByUserId")
     public ResultVO getOrdersByUserId(HttpServletRequest request, String userId){
         return adminService.getOrdersByUserId(userId);
     }

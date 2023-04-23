@@ -86,7 +86,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public ResultVO getOrdersByUserId(String userId) {
         //todo 复杂连表查询
-        return null;
+        return orderService.getOrderByUserId(userId);
     }
 
     private String generateToken() {

@@ -30,7 +30,6 @@ public class AdminAspectJ {
         List<Object> args = Arrays.asList(pjp.getArgs());
         HttpServletRequest request = (HttpServletRequest) args.get(0);
         String token = (String) request.getSession().getAttribute("admin");
-        System.out.println(token);
         try {
             if (request!=null && !StringUtils.isEmpty(token) && TokenCache.getLongKey("admin").equals(token)) {
                 return pjp.proceed();

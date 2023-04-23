@@ -70,6 +70,11 @@ public class ROrderServiceImpl extends ServiceImpl<ROrderMapper, ROrder> impleme
     }
 
     @Override
+    public ResultVO getOrderByUserId(String userId) {
+        return ResultVO.ok().data("data", baseMapper.getOrdersByUserId(userId));
+    }
+
+    @Override
     public ResultVO finishOrder(String orderId, String desc, BigDecimal price) {
         if (StringUtils.isEmpty(orderId) || price == null)
             return ResultVO.error().message("非法请求");

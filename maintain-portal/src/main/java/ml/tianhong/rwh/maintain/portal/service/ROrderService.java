@@ -27,6 +27,8 @@ public interface ROrderService extends IService<ROrder> {
 
     ResultVO getOrdersByToken(HttpServletRequest request);
 
+    ResultVO getOrderByUserId(String userId);
+
     //todo 应该是商家管理的操作
     ResultVO finishOrder(String orderId, String desc, BigDecimal price);
 
